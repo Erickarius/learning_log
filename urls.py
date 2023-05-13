@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
-urlpattern = [
+urlpatterns = [
 	url('admin/', admin.site.urls),
 	url('', include('learning_logs.urls')),
 ]
