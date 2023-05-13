@@ -11,12 +11,12 @@ class Topic(models.Model):
 
 class Entry(models.Model):
 	"""Konkretne informacje o postępie w nauce."""
-	topic = models.Foreignkey(Topic, on_delete=models.CASCADE)
+	topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
 	text = models.TextField()
 	date_added = models.DateTimeField(auto_now_add=True)
 
 	class Meta:
-		vebose_name_plural = 'entries'
+		verbose_name_plural = 'entries'
 
 	def __str__(self):
 		"""Zwraca reprezentacje modelu w postaci ciągu tekstowego."""
