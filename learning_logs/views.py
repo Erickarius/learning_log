@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Topic
 from .forms import TopicForm, EntryForm
@@ -27,7 +27,7 @@ def new_topic(request):
 		form = TopicForm()
 	else:
 		#Przekazano dane za pomocą żądnia POST, należy je przetworzyć
-		form = TopicForm()
+		form = TopicForm(data=request.POST)
 		if form.is_valid():
 			form.save()
 			return redirect('learning_logs:topics')
