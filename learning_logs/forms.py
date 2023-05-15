@@ -7,3 +7,10 @@ class TopicForm(forms.ModelForm):
 		model = Topic
 		fields = ['text']
 		labels = {'text': ''}
+
+class EntryForm(forms.ModelForm):
+	class Meta:
+		model = Entry
+		field = ['text']
+		labels = {'text': ''}
+		widgets = {'text': forms.Textarea(attr={'cols': 80})}
