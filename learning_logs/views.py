@@ -34,4 +34,4 @@ def new_topic(request):
 
 	#Wyświetlenie pustego formularza.
 	context = {'form': form}
-	return render(request, 'learning_logs/new_topic.html, context')
+	return render(request, 'learning_logs/new_topic.html', context)
