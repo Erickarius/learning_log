@@ -1,5 +1,5 @@
 from django.db import models
-form django.contrib.auth.models import User
+from django.contrib.auth.models import User
 
 class Topic(models.Model):
 	"""Temat poznawany przez użytkownika."""
