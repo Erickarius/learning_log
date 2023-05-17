@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
 
@@ -24,6 +24,8 @@ def check_topic_owner(request, topic):
 @login_required
 def topic(request, topic_id):
     """Wyświetla pojedynczy temat i wszystkie powiązane z nim wpisy."""
+    topic = get_object_or_404(Topic, id=topic_id)
+    #Upewniamy się, że temat należy do bieżącego użytkownika.
     topic = Topic.objects.get(id=topic_id)
     check_topic_owner(request, topic)
 
