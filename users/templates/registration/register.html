@@ -2,16 +2,18 @@
 
 {% block content %}
 
-  {%if from.errors %}
-  <p>Nazwa użytkownika i hasło są nieprawidłowe. Proszę spróbować ponownie.</p>
+  {% if form.errors %}
+  <div class="alert alert-danger" role="alert">
+    Nazwa użytkownika i hasło są nieprawidłowe. Proszę spróbować ponownie.
+  </div>
   {% endif %}
 
-  <form method="post" action="{% url 'users:register' %}">
-  {% csrf_token %}
-  {{ form.as_p}}
+  <form method="post" action="{% url 'users:register' %}" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
 
-  <button name="submit">Rejestruj</button>
-  <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+    <button type="submit" class="btn btn-primary">Rejestruj</button>
+    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
   </form>
 
 {% endblock content %}
